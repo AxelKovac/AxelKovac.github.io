@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axel Suárez - Especialista en Redes y Seguridad | Currículum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --secondary: #3b82f6;
+            --secondary-light: #60a5fa;
+            --accent: #8b5cf6;
+            --light: #f8fafc;
+            --light-gray: #f1f5f9;
+            --medium-gray: #e2e8f0;
+            --dark: #0f172a;
+            --text: #334155;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --success: #10b981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            font-size: 1rem;
+            min-height: 100vh;
+        }
+        
+        .resume-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .resume-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 5px solid var(--accent);
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .name {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .title-highlight {
+            color: var(--accent);
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .title-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0.9);
+            border-radius: 2px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .contact-icon {
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        
+        .action-buttons {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            gap: 0.8rem;
+        }
+        
+        .btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            backdrop-filter: blur(5px);
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-pdf {
+            background: linear-gradient(to right, var(--accent), #7c3aed);
+        }
+        
+        .btn-pdf:hover {
+            background: linear-gradient(to right, #9a67f8, #8b5cf6);
+        }
+        
+        /* Navigation */
+        .nav-container {
+            background: var(--light);
+            padding: 0.8rem 2rem;
+            border-bottom: 1px solid var(--medium-gray);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+        }
+        
+        .nav-item {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.4s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-item:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            padding: 2.5rem;
+        }
+        
+        .left-column {
+            border-right: 1px solid var(--medium-gray);
+            padding-right: 2rem;
+        }
+        
+        .right-column {
+            padding-left: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 3px solid var(--accent);
+            position: relative;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.3px;
+        }
+        
+        .section-title i {
+            margin-right: 0.9rem;
+            color: var(--accent);
+            font-size: 1.3rem;
+            background: rgba(139, 92, 246, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Profile Section */
+        .profile-text {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .profile-text::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(to right, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .highlight-box:hover {
+            transform: translateX(5px);
+        }
+        
+        .highlight-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.15rem;
+        }
+        
+        .highlight-title i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .highlight-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        .highlight-item {
+            background: white;
+            border: 1px solid var(--medium-gray);
+            padding: 0.7rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .highlight-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent);
+        }
+        
+        .highlight-item i {
+            color: var(--accent);
+        }
+        
+        /* Experience Section */
+        .job {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--medium-gray);
+            transition: all 0.3s ease;
+        }
+        
+        .job:hover {
+            border-left-color: var(--accent);
+        }
+        
+        .job::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0.5rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+            z-index: 2;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.7rem;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .job-title {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .job-company {
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 0.3rem;
+            display: block;
+        }
+        
+        .job-dates {
+            background: var(--accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            align-self: flex-start;
+        }
+        
+        .job-description {
+            margin-top: 1rem;
+            font-size: 1.02rem;
+            color: var(--text);
+        }
+        
+        .job-responsibilities {
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .job-responsibilities li {
+            margin-bottom: 0.9rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .job-responsibilities li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .metric {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 0.15rem 0.7rem;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 0.3rem;
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-category h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .skill-category h4 i {
+            color: var(--accent);
+            width: 24px;
+            font-size: 1.1rem;
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .skill-item {
+            background: var(--light);
+            padding: 0.7rem 1.1rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+            background: white;
+        }
+        
+        .skill-level {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent);
+            z-index: 1;
+        }
+        
+        .highlight {
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Education & Certifications */
+        .education-item, .certification-item {
+            margin-bottom: 1.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            border-left: 2px solid var(--medium-gray);
+            transition: all 0.3s ease;
+            padding-bottom: 0.5rem;
+        }
+        
+        .education-item:hover, .certification-item:hover {
+            border-left-color: var(--accent);
+        }
+        
+        .education-item::before, .certification-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--accent);
+            z-index: 2;
+        }
+        
+        .edu-header, .cert-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+        
+        .edu-degree, .cert-name {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .edu-school, .cert-issuer {
+            color: var(--secondary);
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+        
+        .edu-dates, .cert-date {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--secondary);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .cert-description {
+            margin-top: 0.8rem;
+            font-size: 0.98rem;
+            color: var(--text);
+        }
+        
+        /* Interests & References */
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .interest-item {
+            background: var(--light);
+            padding: 0.8rem 1.3rem;
+            border-radius: 30px;
+            font-size: 0.98rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .interest-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+        
+        .interest-item i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        
+        .reference {
+            margin-bottom: 1.5rem;
+            padding-left: 1.8rem;
+            position: relative;
+            border-left: 2px solid var(--medium-gray);
+            transition: all 0.3s ease;
+            padding-bottom: 0.5rem;
+        }
+        
+        .reference:hover {
+            border-left-color: var(--accent);
+        }
+        
+        .reference::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--accent);
+            z-index: 2;
+        }
+        
+        .reference-name {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+        
+        .reference-title {
+            color: var(--secondary);
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+        
+        .reference-contact {
+            font-size: 0.98rem;
+            color: var(--text);
+        }
+        
+        /* Achievements */
+        .achievement-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: rgba(139, 92, 246, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+            background: rgba(139, 92, 246, 0.1);
+        }
+        
+        .achievement-icon {
+            color: var(--accent);
+            font-size: 1.5rem;
+            min-width: 40px;
+            height: 40px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .achievement-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .achievement-content p {
+            font-size: 0.98rem;
+            color: var(--text);
+        }
+        
+        .metric-large {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--success);
+            display: block;
+            margin-top: 0.3rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 1.8rem;
+            }
+            
+            .left-column, .right-column {
+                border: none;
+                padding: 0;
+            }
+            
+            .header {
+                padding: 2rem 1.5rem;
+            }
+            
+            .name {
+                font-size: 2.3rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                position: static;
+                justify-content: center;
+                margin-top: 1.5rem;
+            }
+            
+            .contact-info {
+                gap: 1rem;
+            }
+            
+            .contact-item {
+                padding: 0.5rem 1rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            
+            .resume-container {
+                border-radius: 8px;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .header {
+                padding: 1.8rem 1.2rem;
+            }
+            
+            .name {
+                font-size: 2.1rem;
+            }
+            
+            .title {
+                font-size: 1.25rem;
+            }
+            
+            .contact-info {
+                gap: 0.8rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .job-header, .edu-header, .cert-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .job-dates, .edu-dates, .cert-date {
+                align-self: flex-start;
+            }
+            
+            .action-buttons {
+                gap: 0.5rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+            
+            .btn {
+                display: none;
+            visibility: hidden;
+            opacity: 0;
+            height: 0;
+                padding: 0;
+            }
+            
+            .action-buttons {
+                display: none;
+                visibility: hidden;
+                opacity: 0;
+                height: 0;
+                padding: 0;
+            }
+        }
+        
+        .download-notice {
+            text-align: center;
+            color: white;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container" id="resume">
+        <header class="header">
+            <div class="action-buttons">
+                <button class="btn" onclick="window.print()">
+                    <i class="fas fa-print"></i> Imprimir
+                </button>
+                <button class="btn btn-pdf" id="pdfButton">
+                    <i class="fas fa-file-pdf"></i> Descargar PDF
+                </button>
+            </div>
+            
+            <div class="header-content">
+                <h1 class="name">Axel Suárez</h1>
+                <h2 class="title">Especialista en <span class="title-highlight">Redes y Seguridad</span></h2>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon"><i class="fas fa-mobile-alt"></i></span>
+                        <span>(55) 2477-9503</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+                        <span>kasm2804@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                        <span>CDMX, México</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon"><i class="fab fa-linkedin-in"></i></span>
+                        <span>linkedin.com/in/axelkovac</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="nav-container">
+            <div class="nav-items">
+                <a href="#perfil" class="nav-item">Perfil</a>
+                <a href="#experiencia" class="nav-item">Experiencia</a>
+                <a href="#habilidades" class="nav-item">Habilidades</a>
+                <a href="#educacion" class="nav-item">Educación</a>
+                <a href="#certificaciones" class="nav-item">Certificaciones</a>
+                <a href="#logros" class="nav-item">Logros</a>
+            </div>
+        </div>
+        
+        <main class="content">
+            <div class="left-column">
+                <!-- Perfil Profesional -->
+                <section class="section" id="perfil">
+                    <h3 class="section-title"><i class="fas fa-user"></i> Perfil Profesional</h3>
+                    <p class="profile-text">
+                        Ingeniero en Sistemas altamente especializado en redes y seguridad perimetral con más de 3 años de experiencia demostrable. 
+                        Experto en diseñar e implementar infraestructuras de red robustas, administrar firewalls avanzados (Fortinet, SonicWall) 
+                        y ejecutar pruebas de penetración estratégicas. Cursos en CCNA Routing and Switching con habilidades destacadas en 
+                        configuración de routers, switches y protocolos de enrutamiento (OSPF, EIGRP). Busco oportunidades para aplicar mi experiencia 
+                        en seguridad de redes y administración de infraestructuras en entornos desafiantes donde pueda impulsar la transformación digital 
+                        con soluciones seguras e innovadoras.
+                    </p>
+                    
+                    <div class="highlight-box">
+                        <h4 class="highlight-title"><i class="fas fa-bullseye"></i> Objetivo Profesional</h4>
+                        <p>
+                            Contribuir en una organización líder donde pueda aplicar mis conocimientos en redes y seguridad para desarrollar 
+                            soluciones innovadoras que protejan activos digitales críticos y optimicen la infraestructura tecnológica. 
+                            Aspiro a liderar proyectos que impulsen la transformación digital con enfoque en ciberseguridad.
+                        </p>
+                    </div>
+                </section>
+                
+                <!-- Experiencia Profesional -->
+                <section class="section" id="experiencia">
+                    <h3 class="section-title"><i class="fas fa-briefcase"></i> Experiencia Profesional</h3>
+                    
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Arquitecto en Soluciones</div>
+                                <div class="job-company">VECTORPRO</div>
+                            </div>
+                            <div class="job-dates">Sept 2022 - Presente</div>
+                        </div>
+                        <div class="job-description">
+                            <p>Responsable de la arquitectura de redes y seguridad para múltiples clientes corporativos con enfoque en soluciones escalables y seguras.</p>
+                            <ul class="job-responsibilities">
+                                <li>Administración avanzada de Firewalls <span class="metric">(Fortinet y SonicWall)</span> para 15+ clientes, mejorando seguridad perimetral en un <span class="metric">40%</span></li>
+                                <li>Diseño e implementación de redes empresariales y soluciones de seguridad para sectores diversos <span class="metric">(financiero, salud, manufactura)</span></li>
+                                <li>Realización de pruebas de penetración <span class="metric">(pentesting)</span> que identificaron y resolvieron <span class="metric">50+ vulnerabilidades críticas</span></li>
+                                <li>Gestión y mantenimiento de Data Center con <span class="metric">99.9% de disponibilidad</span></li>
+                                <li>Administración de sistemas operativos y licencias para <span class="metric">200+ dispositivos</span></li>
+                                <li>Planificación e implementación de proyectos de cableado estructurado para <span class="metric">5 edificios corporativos</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Soporte Técnico Informático</div>
+                                <div class="job-company">Secovi S.A.P.L. de C.V.</div>
+                            </div>
+                            <div class="job-dates">Nov 2021 - Sept 2022</div>
+                        </div>
+                        <div class="job-description">
+                            <p>Encargado de la infraestructura tecnológica y soporte a usuarios corporativos con enfoque en continuidad operativa.</p>
+                            <ul class="job-responsibilities">
+                                <li>Administración de sistemas operativos y software para <span class="metric">120+ usuarios</span></li>
+                                <li>Mantenimiento de hardware y mini Data Center, reduciendo fallos en un <span class="metric">30%</span></li>
+                                <li>Implementación de soluciones de cableado estructurado para nueva sede corporativa <span class="metric">(reducción de costos en 25%)</span></li>
+                                <li>Soporte técnico remoto y presencial con <span class="metric">95% de satisfacción reportada</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Soporte Técnico Informático</div>
+                                <div class="job-company">IESPMAT GS, S.A. de C.V.</div>
+                            </div>
+                            <div class="job-dates">Mar 2021 - Presente</div>
+                        </div>
+                        <div class="job-description">
+                            <p>Responsable de la infraestructura tecnológica de la organización con enfoque en transformación digital.</p>
+                            <ul class="job-responsibilities">
+                                <li>Diseño y administración de redes LAN para <span class="metric">3 sedes</span></li>
+                                <li>Gestión de servidor NAS con <span class="metric">50TB de capacidad</span></li>
+                                <li>Mantenimiento preventivo y correctivo de <span class="metric">80+ equipos</span></li>
+                                <li>Migración exitosa a infraestructura híbrida <span class="metric">(cloud + on-premise) reduciendo costos en 25%</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Logros Destacados -->
+                <section class="section" id="logros">
+                    <h3 class="section-title"><i class="fas fa-trophy"></i> Logros Destacados</h3>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>Optimización de Seguridad Perimetral</h4>
+                            <p>Reduje vulnerabilidades en un <span class="metric-large">60%</span> mediante implementación de políticas avanzadas en firewalls para clientes de VectorPro.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>Migración Exitosa a Infraestructura Híbrida</h4>
+                            <p>Lideré la migración a infraestructura híbrida en IESPMAT, mejorando disponibilidad y <span class="metric-large">reduciendo costos en 25%</span>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h4>Certificación SNSA SonicOS 7</h4>
+                            <p>Obtuve certificación SNSA SonicWall Network Security Administrator mejorando capacidades de seguridad para clientes.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="right-column">
+                <!-- Habilidades Técnicas -->
+                <section class="section" id="habilidades">
+                    <h3 class="section-title"><i class="fas fa-laptop-code"></i> Habilidades Técnicas</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4><i class="fas fa-network-wired"></i> Redes</h4>
+                            <div class="skill-items">
+                                <div class="skill-item highlight">CCNA R&S</div>
+                                <div class="skill-item">Firewalls Fortinet</div>
+                                <div class="skill-item">Firewalls SonicWall</div>
+                                <div class="skill-item">Diseño de redes</div>
+                                <div class="skill-item">Seguridad perimetral</div>
+                                <div class="skill-item">Cableado estructurado</div>
+                                <div class="skill-item">OSPF/EIGRP</div>
+                                <div class="skill-item">Administración DC</div>
+                                <div class="skill-item">Pentesting</div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4><i class="fas fa-server"></i> Sistemas</h4>
+                            <div class="skill-items">
+                                <div class="skill-item">Windows Server</div>
+                                <div class="skill-item">Linux (Ubuntu)</div>
+                                <div class="skill-item">Linux (CentOS)</div>
+                                <div class="skill-item">Administración NAS</div>
+                                <div class="skill-item">Virtualización</div>
+                                <div class="skill-item">Active Directory</div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4><i class="fas fa-code"></i> Software</h4>
+                            <div class="skill-items">
+                                <div class="skill-item">Acunetix</div>
+                                <div class="skill-item">Wireshark</div>
+                                <div class="skill-item">MS Visio</div>
+                                <div class="skill-item">Power BI</div>
+                                <div class="skill-item">Suite Office</div>
+                                <div class="skill-item">Nmap</div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4><i class="fas fa-user-friends"></i> Habilidades Blandas</h4>
+                            <div class="skill-items">
+                                <div class="skill-item">Liderazgo técnico</div>
+                                <div class="skill-item">Autodidacta</div>
+                                <div class="skill-item">Resolución de problemas</div>
+                                <div class="skill-item">Comunicación efectiva</div>
+                                <div class="skill-item">Proactividad</div>
+                                <div class="skill-item">Trabajo en equipo</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Certificaciones -->
+                <section class="section" id="certificaciones">
+                    <h3 class="section-title"><i class="fas fa-certificate"></i> Certificaciones y Cursos</h3>
+                    
+                    <div class="certification-item">
+                        <div class="cert-header">
+                            <div class="cert-name">CCNA Routing and Switching</div>
+                            <div class="cert-date">2020-2023</div>
+                        </div>
+                        <div class="cert-issuer">Cisco Networking Academy</div>
+                        <div class="cert-description">
+                            Especialización en redes empresariales, configuración avanzada de routers/switches, 
+                            implementación de protocolos OSPF/EIGRP, seguridad de redes y solución de problemas.
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="cert-header">
+                            <div class="cert-name">Network Security Associate</div>
+                            <div class="cert-date">Nov 2022</div>
+                        </div>
+                            <div class="cert-issuer">Fortinet NSE Training Institute</div>
+                        <div class="cert-description">
+                            Fundamentos de seguridad en redes, configuración de firewalls FortiGate, 
+                            políticas de seguridad y gestión de amenazas avanzadas.
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="cert-header">
+                            <div class="cert-name">Information Security Awareness</div>
+                            <div class="cert-date">Abr 2023</div>
+                        </div>
+                        <div class="cert-issuer">Fortinet NSE Training Institute</div>
+                        <div class="cert-description">
+                            Concientización en seguridad de la información, mejores prácticas y prevención de amenazas para entornos corporativos.
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Educación -->
+                <section class="section" id="educacion">
+                    <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Formación Académica</h3>
+                    
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <div class="edu-degree">Ingeniería en Sistemas Computacionales</div>
+                            <div class="edu-dates">2018 - 2022</div>
+                        </div>
+                        <div class="edu-school">Universidad Tecnológica de México</div>
+                        <p class="cert-description">
+                            Especialización en redes y seguridad informática. Proyecto final: "Diseño de infraestructura de red segura para PYME"
+                        </p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <div class="edu-degree">Maestría en Ciberseguridad</div>
+                            <div class="edu-dates">2023 - Presente</div>
+                        </div>
+                        <div class="edu-school">Universidad Tecnológica de México</div>
+                        <p class="cert-description">
+                            Enfoque en seguridad de redes, análisis forense digital y gestión de incidentes críticos.
+                        </p>
+                    </div>
+                </section>
+                
+                <!-- Áreas de Interés -->
+                <section class="section">
+                    <h3 class="section-title"><i class="fas fa-lightbulb"></i> Áreas de Interés</h3>
+                    <div class="interests-list">
+                        <div class="interest-item"><i class="fas fa-shield-alt"></i> Seguridad de redes</div>
+                        <div class="interest-item"><i class="fas fa-lock"></i> Ciberseguridad</div>
+                        <div class="interest-item"><i class="fas fa-fire"></i> Firewalls avanzados</div>
+                        <div class="interest-item"><i class="fas fa-project-diagram"></i> Infraestructura de redes</div>
+                        <div class="interest-item"><i class="fas fa-search"></i> Pentesting</div>
+                        <div class="interest-item"><i class="fas fa-cloud"></i> Cloud Security</div>
+                    </div>
+                </section>
+                
+                <!-- Referencias -->
+                <section class="section">
+                    <h3 class="section-title"><i class="fas fa-comments"></i> Referencias</h3>
+                    
+                    <div class="reference">
+                        <div class="reference-name">Victor Moreno</div>
+                        <div class="reference-title">CEO VectorPro</div>
+                        <div class="reference-contact">Cel: (55) 3417 5077 | vmoreno@vectorpro.mx</div>
+                    </div>
+                    
+                    <div class="reference">
+                        <div class="reference-name">Eduardo Gaspar</div>
+                        <div class="reference-title">Director Comercial de IESPMAT</div>
+                        <div class="reference-contact">Cel: (55) 9295 9018 | eduardo.grdz@iespmatgs.com.mx</div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <div class="download-notice">
+        <i class="fas fa-info-circle"></i> Haz clic en "Descargar PDF" para obtener una copia de tu currículum
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-item').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // PDF Generation with html2pdf
+        document.getElementById('pdfButton').addEventListener('click', function() {
+            const element = document.getElementById('resume');
+            const opt = {
+                margin: [0.5, 0.5, 0.5, 0.5],
+                filename: 'Axel_Suarez_CV.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+            
+            // Show generating message
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generando PDF...';
+            this.disabled = true;
+            
+            // Generate PDF
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Restore button text
+                this.innerHTML = originalText;
+                this.disabled = false;
+            });
+        });
+        
+        // Print button functionality
+        document.querySelector('.btn:nth-child(1)').addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparando...';
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-print"></i> Imprimir';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
